@@ -1,5 +1,5 @@
 const std = @import("std");
-const Torrent_File = @import("Torrent_File.zig");
+const TorrentFile = @import("TorrentFile.zig");
 
 pub fn main() !void {
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
@@ -13,7 +13,7 @@ pub fn main() !void {
         std.process.exit(1);
     }
 
-    const file = try Torrent_File.readFile(allocator, args[1]);
+    const file = try TorrentFile.readFile(allocator, args[1]);
 
     var bw = std.io.bufferedWriter(std.io.getStdOut().writer());
     const stdout = bw.writer();
